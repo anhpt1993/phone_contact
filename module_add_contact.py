@@ -35,7 +35,7 @@ fields = [
     {
         "name": "tags",
         "loop": True,
-        "display_text": "+) Tags (Choose one of the following options, enter nothing to break): "
+        "display_text": "+) Tags (Enter nothing to break): "
     }
 ]
 def add_personal_information():
@@ -52,7 +52,7 @@ def add_personal_information():
             contact.update({field["name"]: value_list})
         else:
             value = input(field["display_text"])
-            contact.update({ field["name"]: value })
+            contact.update({field["name"]: value})
     return contact
 def input_text(text):
     return input(text)

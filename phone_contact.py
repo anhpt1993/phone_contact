@@ -1,6 +1,7 @@
 from module_add_contact import *
 from module_delete import *
 from module_update import *
+from module_show_contact_by_tag import *
 
 def choose_option():
     while True:
@@ -34,13 +35,13 @@ def try_again(text):
 if __name__ == '__main__':
     # contact_list = {
     #     1: {'name': 'Pham The Anh', 'phones': ['0123456789'], 'emails': ['anhpt@xxx'], 'address': 'Vung Tau',
-    #         'note': '', 'tags': ['1', '2', '3']},
+    #         'note': '', 'tags': ["friend", "family", "co-worker"]},
     #     2: {'name': 'Le Thi Nga', 'phones': ['0123456987'], 'emails': ['ngalt@xxx'], 'address': 'Vung Tau', 'note': '',
-    #         'tags': ['1', '2']},
+    #         'tags': ["friend", "family"]},
     #     3: {'name': 'Le Duc Manh', 'phones': ['0969996669'], 'emails': ['le.dm@xyz'], 'address': 'Binh Duong',
-    #         'note': 'brother in law', 'tags': ['1', '3']},
+    #         'note': 'brother in law', 'tags': ["friend", "co-worker"]},
     #     4: {'name': 'Nguyen Van B', 'phones': ['0669969996'], 'emails': ['b.nguyen@yahoo'], 'address': 'Ha Nam',
-    #         'note': 'University', 'tags': ['1']}
+    #         'note': 'University', 'tags': ["others"]}
     # }
 
     contact_list = {}
@@ -80,7 +81,17 @@ if __name__ == '__main__':
             else:
                 print("\nYou have to add contact first\n".upper())
         elif option == 5:
-            pass
+            if bool(contact_list):
+                print("Choose one or more tags of the following options:")
+                for key, val in tag_ID.items():
+                    print(f"\t{key} : {val}")
+                item = get_item(tag_ID)
+                print(f"\nAll contact with tag '{tag_ID[item]}':")
+                for key, val in contact_list.items():
+                    if tag_ID[item] in contact_list[key]["tags"]:
+                        print(f"{key} : {val}")
+            else:
+                print("\nYou have to add contact first\n".upper())
         else:
             exit()
 
