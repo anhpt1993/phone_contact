@@ -21,6 +21,7 @@ if __name__ == '__main__':
     print("Choose one or more tags of the following options:")
     for key, val in tag_ID.items():
         print(f"\t{key} : {val}")
+    print("Your choice: ")
     item = get_item (tag_ID)
     print(f"\nAll contact with tag '{tag_ID[item]}':")
     for key, val in contact_list.items():

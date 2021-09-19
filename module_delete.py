@@ -1,7 +1,7 @@
 def get_item(contact_list):
     while True:
         try:
-            key = int(input("Enter the serial number: "))
+            key = int(input())
             if check_key(contact_list, key):
                 return key
                 break
